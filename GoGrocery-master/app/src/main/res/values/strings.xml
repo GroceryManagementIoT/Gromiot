@@ -9,6 +9,8 @@
     <string name="base_url">http://shyamcollege.in/Grocery/App/</string>
     <string name="img_base_url">http://shyamcollege.in/Grocery/</string>
 
+    <string name="button">Order on Amazon</string>
+
 
     <string name="cart">Cart</string>
 

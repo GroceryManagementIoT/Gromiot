@@ -28,6 +28,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
+
 public class OrderActivity extends AppCompatActivity {
 
 
@@ -35,6 +36,7 @@ public class OrderActivity extends AppCompatActivity {
     SharedPreferences sp;
     ConstraintLayout cl;
     private ProgressBar mProgressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,7 +146,10 @@ public class OrderActivity extends AppCompatActivity {
             }
 
 
+
         }
+
+
         RecentProducts recentProducts = new RecentProducts();
         recentProducts.execute(sp.getString("loginid", null));
 

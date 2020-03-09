@@ -97,7 +97,7 @@ public class HomeActivity extends AppCompatActivity
         handleIntent(getIntent());
         final IProfile profile;
         if (sp.getString("loginid", null) == null) {
-            profile = new ProfileDrawerItem().withName("RKS").withEmail("profile@rks.com").withIcon(R.drawable.icon).withTag("RKS");
+            profile = new ProfileDrawerItem().withName("Gromiot").withEmail("profile@gromiot.com").withIcon(R.drawable.icon).withTag("RKS");
 
         } else {
             profile = new ProfileDrawerItem().withName(sp.getString("name", null)).withEmail(sp.getString("mobile", null)).withIcon(R.drawable.icon).withTag("CUSTOMER");
@@ -116,7 +116,7 @@ public class HomeActivity extends AppCompatActivity
                 .addProfiles(
                         profile,
                         //don't ask but google uses 14dp for the add account icon in gmail but 20dp for the normal icons (like manage account)
-                        new ProfileSettingDrawerItem().withName("Register Now").withDescription("Add new RKS Account").withTag("REGISTER")
+                        new ProfileSettingDrawerItem().withName("Register Now").withDescription("Add new Gromiot Account").withTag("REGISTER")
 
                 )
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {

@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -29,6 +30,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import android.net.Uri;
+import android.content.Intent;
+
+
+
+
+
+
 public class OrderDetailsActivity extends AppCompatActivity {
     public static final String PREFS = "PREFS";
     SharedPreferences sp;
@@ -39,9 +48,13 @@ public class OrderDetailsActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     public String order_id;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.list_orders);
         setContentView(R.layout.activity_order_details);
         Toolbar toolbar = findViewById(R.id.mytoolbar);
         setSupportActionBar(toolbar);
@@ -61,7 +74,10 @@ public class OrderDetailsActivity extends AppCompatActivity {
         l1 = findViewById(R.id.ll_item_products);
         l2 = findViewById(R.id.ll_item);
 
+
+
         mProgressBar.setVisibility(View.VISIBLE);
+
 
 
 
@@ -177,10 +193,16 @@ public class OrderDetailsActivity extends AppCompatActivity {
             }
 
 
+
+
         }
+
         OrderItems items = new OrderItems();
         items.execute(order_id);
 
     }
-
+    public void browser(View view){
+        Intent browseIntent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.amazon.in/"));
+        startActivity(browseIntent);
+    }
 }

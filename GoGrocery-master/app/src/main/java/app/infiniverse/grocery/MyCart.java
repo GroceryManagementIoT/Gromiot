@@ -239,7 +239,7 @@ public class MyCart extends AppCompatActivity {
                         super.onPostExecute(s);
                         AlertDialog.Builder builder = new AlertDialog.Builder(MyCart.this);
                         builder.setTitle("Successful")
-                                .setMessage("Order Placed Successfully")
+                                .setMessage("Confirm Order?")
                                 .setIcon(R.drawable.ic_check_black)
                                 .setCancelable(false)
                                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
