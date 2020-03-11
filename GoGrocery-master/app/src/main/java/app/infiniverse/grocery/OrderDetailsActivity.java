@@ -11,7 +11,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
+
+
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -30,13 +31,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import android.net.Uri;
-import android.content.Intent;
-
-
-
-
-
 
 public class OrderDetailsActivity extends AppCompatActivity {
     public static final String PREFS = "PREFS";
@@ -50,16 +44,16 @@ public class OrderDetailsActivity extends AppCompatActivity {
 
 
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_orders);
         setContentView(R.layout.activity_order_details);
         Toolbar toolbar = findViewById(R.id.mytoolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Order Details");
+
+
 
 
         sp = getSharedPreferences(PREFS, Context.MODE_PRIVATE);
@@ -85,7 +79,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
         class OrderItems extends AsyncTask<String, Void, String> {
 
             @Override
-            protected String doInBackground(String... params) {
+            public String doInBackground(String... params) {
                 String OrdersItemURL = getResources().getString(R.string.base_url) + "orderDetails/";
                 try {
                     URL url = new URL(OrdersItemURL);
@@ -114,7 +108,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
             }
 
             @Override
-            protected void onPostExecute(String s) {
+            public void onPostExecute(String s) {
                 super.onPostExecute(s);
                 AlertDialog.Builder builder = new AlertDialog.Builder(OrderDetailsActivity.this);
                 builder.setTitle("Received Message");
@@ -188,21 +182,15 @@ public class OrderDetailsActivity extends AppCompatActivity {
             }
 
             @Override
-            protected void onPreExecute() {
+            public void onPreExecute() {
                 super.onPreExecute();
             }
-
-
-
-
         }
 
         OrderItems items = new OrderItems();
         items.execute(order_id);
 
     }
-    public void browser(View view){
-        Intent browseIntent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.amazon.in/"));
-        startActivity(browseIntent);
-    }
+
+
 }

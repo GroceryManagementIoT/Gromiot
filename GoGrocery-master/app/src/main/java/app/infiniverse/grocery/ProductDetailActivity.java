@@ -6,10 +6,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
@@ -38,10 +40,23 @@ public class ProductDetailActivity extends AppCompatActivity {
     ScrollView view;
     private ProgressBar mProgressBar;
     AddToCart addToCart;
+    Button amazon_order;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
+
+        amazon_order = findViewById(R.id.orderonamazon);
+
+        amazon_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browseIntent;
+                browseIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.amazon.in/"));
+                startActivity(browseIntent);
+            }
+        });
+
         view = findViewById(R.id.product_page);
         mProgressBar = findViewById(R.id.progressBar);
         mProgressBar.setVisibility(View.VISIBLE);
