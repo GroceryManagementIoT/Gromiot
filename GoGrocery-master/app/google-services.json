@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "103637283259",
+    "firebase_url": "https://gromiot-732b5.firebaseio.com",
+    "project_id": "gromiot-732b5",
+    "storage_bucket": "gromiot-732b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103637283259:android:d01a4d64464a740125549e",
+        "android_client_info": {
+          "package_name": "app.infiniverse.grocery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103637283259-ut27km4254qhahod9a8pnq84r92kcj9u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.infiniverse.grocery",
+            "certificate_hash": "7e85f2165441f927012306d46e739209595487dd"
+          }
+        },
+        {
+          "client_id": "103637283259-ba3repdgjfla6bhho067eimr6vie6tel.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCygYKe8abwytU4F_2kv7IyGPipXq1h73M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103637283259-ba3repdgjfla6bhho067eimr6vie6tel.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
