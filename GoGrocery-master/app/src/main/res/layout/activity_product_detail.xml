@@ -264,7 +264,7 @@
                     android:paddingLeft="90dp"
                     android:paddingRight="90dp"
                     android:paddingTop="12dp"
-                    android:text="ORDER ON GROMIOT"
+                    android:text="BUY NOW"
                     android:textColor="@color/white" />
 
                 <TextView
