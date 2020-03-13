@@ -8,6 +8,7 @@
     <uses-permission android:name="android.Manifest.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MyApp"
@@ -17,6 +18,15 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
+        <service
+            android:name=".TokenService"
+            android:enabled="true"
+            android:exported="true"></service>
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
@@ -81,15 +91,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.infiniverse.grocery.HomeActivity" />
         </activity>
-        <activity android:name=".OrderDetailsActivity"
+        <activity
+            android:name=".OrderDetailsActivity"
             android:parentActivityName=".OrderActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.infiniverse.grocery.OrderActivity" />
-
         </activity>
-
         <activity
             android:name=".ProfileActivity"
             android:screenOrientation="portrait" />
