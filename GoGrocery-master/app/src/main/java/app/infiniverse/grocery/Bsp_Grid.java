@@ -14,9 +14,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-/**
- * Created by root on 24/3/18.
- */
+
 
 public class Bsp_Grid extends ArrayAdapter<GridItem> {
 

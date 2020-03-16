@@ -1,8 +1,6 @@
 package app.infiniverse.grocery;
 
-/**
- * Created by root on 25/3/18.
- */
+
 
 public class GridItem {
     private String image;
