@@ -18,9 +18,7 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 
-/**
- * Created by root on 24/3/18.
- */
+
 
 public class Recent_Products_Adapter extends RecyclerView.Adapter<Recent_Products_Adapter.ProductsViewHolder> {
 

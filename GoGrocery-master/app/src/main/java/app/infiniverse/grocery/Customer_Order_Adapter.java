@@ -10,9 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-/**
- * Created by root on 28/3/18.
- */
+
 
 public class Customer_Order_Adapter extends RecyclerView.Adapter<Customer_Order_Adapter.CustomerViewHolder> {
 

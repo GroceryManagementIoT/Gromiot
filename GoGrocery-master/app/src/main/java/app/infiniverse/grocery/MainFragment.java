@@ -31,9 +31,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class MainFragment extends Fragment {
 
 

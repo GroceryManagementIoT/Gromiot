@@ -119,7 +119,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             @Override
             protected String doInBackground(Void... voids) {
                 try {
-                    String urls = getResources().getString(R.string.base_url).concat("cities");
+                    String urls = "https://grocerymanagementcities.000webhostapp.com/";
                     URL url = new URL(urls);
 
                     //Opening the URL using HttpURLConnection

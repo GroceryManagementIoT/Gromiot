@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 
-/**
- * Created by root on 26/3/18.
- */
+
 
 public class Product {
     void startProductDetailActivity(String product_id, Context context) {

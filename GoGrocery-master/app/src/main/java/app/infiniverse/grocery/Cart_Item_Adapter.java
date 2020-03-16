@@ -26,9 +26,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 
-/**
- * Created by root on 24/3/18.
- */
+
 
 public class Cart_Item_Adapter extends RecyclerView.Adapter<Cart_Item_Adapter.ProductsViewHolder> {
 

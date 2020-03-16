@@ -1,8 +1,6 @@
 package app.infiniverse.grocery;
 
-/**
- * Created by root on 28/3/18.
- */
+
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -17,9 +15,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 
-/**
- * Created by root on 24/3/18.
- */
+
 
 public class Item_Order_Detail extends RecyclerView.Adapter<Item_Order_Detail.ProductsViewHolder> {
 
