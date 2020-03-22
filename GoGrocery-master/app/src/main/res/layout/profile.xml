@@ -25,7 +25,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="68dp"
             android:fontFamily="sans-serif"
-            android:text="Nearest Kirana Store"
+            android:text="Gromiot"
             android:textColor="@android:color/black"
             android:textSize="24sp" />
 
@@ -38,7 +38,7 @@
             android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:text="profile@grocery.com"
+            android:text="profile@gromiot.com"
             android:textSize="14sp" />
 
         <TextView
@@ -62,7 +62,7 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="sans-serif-light"
             android:lines="3"
-            android:text="GoGrocery Store,  Bilaspur, Chhattisgarh"
+            android:text="Bangalore, India"
             android:textAlignment="center"
             android:textSize="16sp" />
 
