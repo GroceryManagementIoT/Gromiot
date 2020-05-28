@@ -66,7 +66,7 @@ public class HomeActivity extends AppCompatActivity
         implements BaseSliderView.OnSliderClickListener,AddorRemoveCallbacks {
 
     SliderLayout sliderShow;
-    private static int cart_count=0;
+    private static int cart_count=0,list_count=0;
     HashMap<String, String> url_maps = new HashMap<>();
 
         private GridView mGridView;
@@ -75,7 +75,7 @@ public class HomeActivity extends AppCompatActivity
     private Bsp_Grid mGridAdapter;
     private ArrayList<GridItem> mGridData;
     public static final String PREFS = "PREFS";
-    SharedPreferences sp;
+    SharedPreferences sp,spm;
     LinearLayout l2;
     SharedPreferences.Editor editor;
 
@@ -167,11 +167,16 @@ public class HomeActivity extends AppCompatActivity
                                 startActivity(i);
 
                             } else if (drawerItem.getTag().toString().equals("MY_CART")) {
+                                Toast.makeText(getApplicationContext(), drawerItem.getTag().toString(), Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(HomeActivity.this, MyCart.class);
+                                startActivity(i);
+                            }else if(drawerItem.getTag().toString().equals("MONTHLY_LIST")){
                                 Intent i = new Intent(HomeActivity.this, MyCart.class);
                                 startActivity(i);
 
-                            } else if (drawerItem.getTag().toString().equals("LOG_OUT")) {
-                                cart_count=0;
+
+                            }else if (drawerItem.getTag().toString().equals("LOG_OUT")) {
+                                cart_count = 0;
                                 invalidateOptionsMenu();
                                 editor.clear().apply();
                                 Intent i = new Intent(HomeActivity.this, StartActivity.class);
@@ -183,14 +188,17 @@ public class HomeActivity extends AppCompatActivity
                             } else if (drawerItem.getTag().toString().equals("SUB_CATEGORIES")) {
                                 Intent intent = new Intent(HomeActivity.this, Category_wise_products.class);
                                 intent.putExtra("sub_cat_id", String.valueOf(drawerItem.getIdentifier()));
-                                intent.putExtra("cart_count",""+cart_count);
-                                intent.putExtra("sub_category", ((Nameable)drawerItem).getName().toString());
+                                intent.putExtra("cart_count", "" + cart_count);
+                                intent.putExtra("sub_category", ((Nameable) drawerItem).getName().toString());
                                 startActivity(intent);
                             }
+
                         }
 
-                        return false;
-                    }
+
+                            return false;
+                        }
+
                 })
                 .withSavedInstance(savedInstanceState)
                 .withShowDrawerOnFirstLaunch(true)
@@ -201,12 +209,11 @@ public class HomeActivity extends AppCompatActivity
         if (sp.getString("loginid", null) != null) {
             PrimaryDrawerItem order_history = new PrimaryDrawerItem().withName("Order History").withIcon(R.drawable.ic_history_black).withTag("ORDER_HISTORY");
             PrimaryDrawerItem my_cart = new PrimaryDrawerItem().withName("My Cart").withIcon(R.drawable.ic_shopping_cart_black).withTag("MY_CART");
+            PrimaryDrawerItem monthly_list = new PrimaryDrawerItem().withName("Monthly List").withIcon(R.drawable.ic_monthly_list_black).withTag("MONTHLY_LIST");
             result.addItem(order_history);
             result.addItem(my_cart);
+            result.addItem(monthly_list);
             result.addStickyFooterItem(new PrimaryDrawerItem().withName("Log Out").withIcon(R.drawable.ic_log_out).withTag("LOG_OUT"));
-
-
-
 
         } else {
             result.addStickyFooterItem(new PrimaryDrawerItem().withName("Log In").withIcon(R.drawable.ic_person_black).withTag("LOGIN"));
@@ -732,11 +739,16 @@ public class HomeActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
 
-        final MenuItem menuItem = menu.findItem(R.id.cart);
+        final MenuItem menuItem,menuItems;
+        menuItem = menu.findItem(R.id.cart);
         menuItem.setIcon(Converter.convertLayoutToImage(HomeActivity.this,cart_count,R.drawable.ic_shopping_cart_white));
+        menuItems = menu.findItem(R.id.monthly_list);
+        menuItems.setIcon(Converter.convertLayoutToImage(HomeActivity.this,cart_count,R.drawable.ic_monthly_list_white));
 
 
-        if(sp.getString("loginid",null)!=null){
+
+        if(sp.getString("loginid",null)!=null)
+        {
             class GetCartItemCount extends AsyncTask<String, Void, String> {
 
                 @Override
@@ -749,6 +761,7 @@ public class HomeActivity extends AppCompatActivity
                     super.onPostExecute(s);
                     cart_count = Integer.parseInt(s);
                     menuItem.setIcon(Converter.convertLayoutToImage(HomeActivity.this,cart_count,R.drawable.ic_shopping_cart_white));
+
                 }
 
                 @Override
@@ -801,7 +814,7 @@ public class HomeActivity extends AppCompatActivity
 
         int id = item.getItemId();
 
-        if (id == R.id.cart) {
+        if (id == R.id.cart || id==R.id.monthly_list) {
 
 
 
@@ -809,10 +822,11 @@ public class HomeActivity extends AppCompatActivity
                 Intent i = new Intent(this, MyCart.class);
                 startActivity(i);
                 return true;
-            }else{
+            }
+            else{
                 AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
                 builder.setTitle("Heyy..")
-                        .setMessage("To see your cart you have to login first. Do you want to login ")
+                        .setMessage("To see you have to login first. Do you want to login ")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -829,6 +843,10 @@ public class HomeActivity extends AppCompatActivity
                 builder.show();
             }
         }
+
+
+
+
 
 
         return super.onOptionsItemSelected(item);
@@ -875,6 +893,19 @@ public class HomeActivity extends AppCompatActivity
     @Override
     public void onRemoveProduct() {
         cart_count--;
+        invalidateOptionsMenu();
+    }
+
+    @Override
+    public void onAddMonthlyList() {
+        list_count++;
+        invalidateOptionsMenu();
+
+    }
+
+    @Override
+    public void onRemoveMonthlyList() {
+        list_count--;
         invalidateOptionsMenu();
     }
 }

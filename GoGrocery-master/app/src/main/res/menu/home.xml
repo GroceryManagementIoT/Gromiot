@@ -13,4 +13,9 @@
         android:orderInCategory="100"
         android:title="@string/cart"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/monthly_list"
+        android:orderInCategory="100"
+        android:title="@string/monthlylist"
+         />
 </menu>

@@ -48,7 +48,7 @@ public class MyCart extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.mytoolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("My Cart");
+        getSupportActionBar().setTitle("Gromiot List");
 
 
         sp = getSharedPreferences(PREFS, Context.MODE_PRIVATE);

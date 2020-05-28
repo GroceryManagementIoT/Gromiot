@@ -47,7 +47,7 @@ public class AddToCart {
                 protected void onPostExecute(String s) {
                     super.onPostExecute(s);
 
-                    Toast.makeText(context, "Product Added to cart successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Product Added Successfully", Toast.LENGTH_SHORT).show();
 
                 }
 
