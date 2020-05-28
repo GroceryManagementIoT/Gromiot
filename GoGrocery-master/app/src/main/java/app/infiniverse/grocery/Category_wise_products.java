@@ -41,7 +41,7 @@ public class Category_wise_products extends AppCompatActivity implements AddorRe
     LinearLayout ll;
     SharedPreferences sp;
     ConstraintLayout cl;
-    int cart_count;
+    int cart_count, list_count;
     private ProgressBar mProgressBar;
 
     @Override
@@ -59,7 +59,7 @@ public class Category_wise_products extends AppCompatActivity implements AddorRe
 
         ll = findViewById(R.id.ll_products);
 
-        cl= findViewById(R.id.ll_empty);
+        cl = findViewById(R.id.ll_empty);
 
         Bundle bundle = getIntent().getExtras();
         final String sub_cat_id = bundle.getString("sub_cat_id");
@@ -302,6 +302,19 @@ public class Category_wise_products extends AppCompatActivity implements AddorRe
     @Override
     public void onRemoveProduct() {
         cart_count--;
+        invalidateOptionsMenu();
+    }
+
+    @Override
+    public void onAddMonthlyList() {
+        list_count++;
+        invalidateOptionsMenu();
+
+    }
+
+    @Override
+    public void onRemoveMonthlyList() {
+        list_count--;
         invalidateOptionsMenu();
     }
 }

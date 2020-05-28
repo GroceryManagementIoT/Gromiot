@@ -37,7 +37,7 @@ public class SearchResultsActivity extends AppCompatActivity implements AddorRem
     ConstraintLayout cl;
     public static final String PREFS = "PREFS";
     SharedPreferences sp;
-    int cart_count;
+    int cart_count,list_count;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -183,6 +183,19 @@ public class SearchResultsActivity extends AppCompatActivity implements AddorRem
     @Override
     public void onRemoveProduct() {
         cart_count--;
+        invalidateOptionsMenu();
+    }
+
+    @Override
+    public void onAddMonthlyList() {
+        list_count++;
+        invalidateOptionsMenu();
+
+    }
+
+    @Override
+    public void onRemoveMonthlyList() {
+        list_count--;
         invalidateOptionsMenu();
     }
 }
